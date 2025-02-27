@@ -1,3 +1,4 @@
+@extends('layouts.app', ['pageSlug' => 'users'])
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -296,13 +297,14 @@
                         <h4 class="card-title">Users</h4>
                     </div>
                     <div class="col-4 text-right">
-                        <a href="#" class="btn btn-sm btn-primary">Add user</a>
+                        <a href="{{ route('pages.createuser') }}" class="btn btn-sm btn-primary">Add user</a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
 
                 <div class="">
+                @forelse ($users as $user)
                     <table class="table tablesorter " id="">
                         <thead class=" text-primary">
                             <tr><th scope="col">Name</th>
@@ -312,9 +314,9 @@
                         </tr></thead>
                         <tbody>
                                                                 <tr>
-                                    <td>Admin Admin</td>
+                                    <td>{{$user->name}}</td>
                                     <td>
-                                        <a href="mailto:admin@white.com">admin@white.com</a>
+                                        <a href="mailto:admin@white.com">{{$user->email}}</a>
                                     </td>
                                     <td>25/02/2020 09:11</td>
                                     <td class="text-right">
@@ -331,7 +333,11 @@
                                                         </tbody>
                     </table>
                 </div>
-
+                @empty
+                    <div class="alert alert-info">
+                        Não foram encontradas anotações.
+                    </div>
+                @endforelse
             </div>
 
             <div class="card-footer py-4">
