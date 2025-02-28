@@ -31,8 +31,21 @@ class UserController extends Controller
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to create user'], 500);
         }
+    }
 
-
-
+    public function update(Request $request)
+    {
+        try{
+            $id = $request->id;
+            $arr = array('name' => $request->name, 'email' => $request->email, 'password' => $request->password);
+            $url = 'http://127.0.0.1:8000/api/users/' . $id;
+            $response = Http::put($url, $request);
+            //return redirect('user');
+            if ($response['status'] == true){
+                return redirect('user');
+            };
+        }catch (Exception $e){
+            return response()->json(['message' => 'Failed to update user'], 500);
+        }
     }
 }

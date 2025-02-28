@@ -74,4 +74,5 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::post('/store', [UserController::class, 'store'])->name('user.store');
+Route::put('/update', [UserController::class, 'update'])->name('user.update');
 

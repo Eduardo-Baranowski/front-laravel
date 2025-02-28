@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class ProfileController extends Controller
 {
@@ -13,9 +15,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function edit()
+    public function edit(Request $request)
     {
-        return view('profile.edit');
+        $id = $request->id;
+        $url = 'http://127.0.0.1:8000/api/users/' . $id;
+        $user = Http::get($url)->json();
+        return view('profile.edit')->with('user', $user);
     }
 
     /**
