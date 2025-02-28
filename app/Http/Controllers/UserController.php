@@ -17,7 +17,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $model
      * @return \Illuminate\View\View
      */
-    public function index(User $model)
+    public function index()
     {
         $users = Http::get('http://127.0.0.1:8000/api/users')->json();
         return view('users.index')->with('users', $users);
@@ -37,15 +37,27 @@ class UserController extends Controller
     {
         try{
             $id = $request->id;
-            $arr = array('name' => $request->name, 'email' => $request->email, 'password' => $request->password);
             $url = 'http://127.0.0.1:8000/api/users/' . $id;
             $response = Http::put($url, $request);
-            //return redirect('user');
             if ($response['status'] == true){
                 return redirect('user');
             };
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to update user'], 500);
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        try{
+            $id = $request->id;
+            $url = 'http://127.0.0.1:8000/api/users/' . $id;
+            $response = Http::delete($url);
+            if ($response['status'] == true){
+                return redirect('user');
+            };
+        }catch (Exception $e){
+            return response()->json(['message' => 'Failed to delete user'], 500);
         }
     }
 }
