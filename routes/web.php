@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,13 +69,14 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 Route::post('/store', [UserController::class, 'store'])->name('user.store');
 Route::put('/update', [UserController::class, 'update'])->name('user.update');
 Route::get('/destroy', [UserController::class, 'destroy'])->name('user.destroy');
-
+Route::get('/login', [UserController::class, 'login'])->name('user.login');
+Route::post('/authenticate', [UserController::class, 'authenticate'])->name('user.authenticate');

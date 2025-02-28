@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
@@ -19,7 +20,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Http::get('http://127.0.0.1:8000/api/users')->json();
+        $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+        $users = Http::withToken($token)->get('http://127.0.0.1:8000/api/users')->json();
         return view('users.index')->with('users', $users);
     }
 
@@ -30,6 +32,29 @@ class UserController extends Controller
             return redirect('user');
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to create user'], 500);
+        }
+    }
+
+    public function authenticate(Request $request)
+    {
+        try{
+            $response = Http::post('http://127.0.0.1:8000/api/login', $request);
+            if ($response['status'] == true){
+                setcookie("token",$response['token']);
+                return redirect('user');
+            }
+            return response()->json(['message' => 'Failed to login user'], 500);
+        }catch (Exception $e){
+            return response()->json(['message' => 'Failed to login user'], 500);
+        }
+    }
+
+    public function login()
+    {
+        try{
+            return view('auth.login');
+        }catch (Exception $e){
+            return response()->json(['message' => 'Failed to login user'], 500);
         }
     }
 
