@@ -60,7 +60,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->
 Route::group(['middleware' => 'auth'], function () {
 		Route::get('icons', ['as' => 'pages.icons', 'uses' => 'App\Http\Controllers\PageController@icons']);
 		Route::get('maps', ['as' => 'pages.maps', 'uses' => 'App\Http\Controllers\PageController@maps']);
-		Route::get('createuser', ['as' => 'pages.createuser', 'uses' => 'App\Http\Controllers\PageController@createuser']);
+
 		Route::get('notifications', ['as' => 'pages.notifications', 'uses' => 'App\Http\Controllers\PageController@notifications']);
 		Route::get('rtl', ['as' => 'pages.rtl', 'uses' => 'App\Http\Controllers\PageController@rtl']);
 		Route::get('tables', ['as' => 'pages.tables', 'uses' => 'App\Http\Controllers\PageController@tables']);
@@ -75,8 +75,13 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+Route::get('createuser', ['as' => 'pages.createuser', 'uses' => 'App\Http\Controllers\PageController@createuser']);
+Route::get('createnoticia', ['as' => 'pages.createnoticia', 'uses' => 'App\Http\Controllers\PageController@createnoticia']);
+
 Route::post('/store', [UserController::class, 'store'])->name('user.store');
 Route::put('/update', [UserController::class, 'update'])->name('user.update');
 Route::get('/destroy', [UserController::class, 'destroy'])->name('user.destroy');
 Route::get('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/authenticate', [UserController::class, 'authenticate'])->name('user.authenticate');
+
+Route::post('/noticia', [\App\Http\Controllers\NoticiaController::class, 'store'])->name('noticia.store');

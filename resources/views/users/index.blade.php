@@ -297,6 +297,7 @@
                     </div>
                     <div class="col-4 text-right">
                         <a href="{{ route('pages.createuser') }}" class="btn btn-sm btn-primary">Add user</a>
+                        <a href="{{ route('pages.createnoticia') }}" class="btn btn-sm btn-primary">Criar notícia</a>
                     </div>
                 </div>
             </div>

@@ -22,14 +22,22 @@ class UserController extends Controller
     {
         $token = 'Authorization: Bearer ' . $_COOKIE["token"];
         $users = Http::withToken($token)->get('http://127.0.0.1:8000/api/users')->json();
-        return view('users.index')->with('users', $users);
+        if($users['status'] == true){
+            return view('users.index')->with('users', $users);
+        }
+        return redirect('login');
+
     }
 
     public function store(Request $request)
     {
         try{
-            Http::post('http://127.0.0.1:8000/api/users', $request);
-            return redirect('user');
+            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+            $response = Http::withToken($token)->post('http://127.0.0.1:8000/api/users', $request);
+            if($response['status'] == true){
+                return redirect('user');
+            }
+            return redirect('login');
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to create user'], 500);
         }
@@ -41,6 +49,8 @@ class UserController extends Controller
             $response = Http::post('http://127.0.0.1:8000/api/login', $request);
             if ($response['status'] == true){
                 setcookie("token",$response['token']);
+                //var_dump($response['user']['id']);
+                setcookie("id",$response['user']['id']);
                 return redirect('user');
             }
             return response()->json(['message' => 'Failed to login user'], 500);

@@ -39,6 +39,11 @@ class PageController extends Controller
         return view('pages.createuser');
     }
 
+    public function createnoticia()
+    {
+        return view('pages.createnoticia');
+    }
+
     /**
      * Display notifications page
      *
