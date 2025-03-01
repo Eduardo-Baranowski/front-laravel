@@ -74,6 +74,8 @@ class UserController extends Controller
             $url = 'http://127.0.0.1:8000/api/logout/' . $id;
             $response = Http::withToken($token)->post($url);
             if ($response['status'] == true){
+                setcookie("token","");
+                setcookie("id","");
                 return redirect('login');
             };
         }catch (Exception $e){

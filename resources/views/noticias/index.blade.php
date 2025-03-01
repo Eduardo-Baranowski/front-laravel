@@ -104,32 +104,20 @@
                     <div class="sidebar">
                         <div class="sidebar-wrapper">
                             <div class="logo">
-                                <a href="#" class="simple-text logo-mini">{{ __('WD') }}</a>
+                                <a href="#" class="simple-text logo-mini">{{ __('') }}</a>
                                 <a href="#" class="simple-text logo-normal">{{ __('White Dashboard') }}</a>
                             </div>
                             <ul class="nav">
                                 <li>
-                                    <a href="{{ route('home') }}">
-                                        <i class="tim-icons icon-chart-pie-36"></i>
-                                        <p>{{ __('Dashboard') }}</p>
-                                    </a>
-                                </li>
-                                <li>
                                     <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                                         <i class="fab fa-laravel" ></i>
-                                        <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
+                                        <span class="nav-link-text" >{{ __('Gestor') }}</span>
                                         <b class="caret mt-1"></b>
                                     </a>
 
                                     <div class="collapse show" id="laravel-examples">
                                         <ul class="nav pl-4">
-                                            <li >
-                                                <a href="{{ route('profile.edit')  }}">
-                                                    <i class="tim-icons icon-single-02"></i>
-                                                    <p>{{ __('User Profile') }}</p>
-                                                </a>
-                                            </li>
-                                            <li class="active" >
+                                            <li>
                                                 <a href="{{ route('user.index')  }}">
                                                     <i class="tim-icons icon-bullet-list-67"></i>
                                                     <p>{{ __('User Management') }}</p>
@@ -143,48 +131,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.icons') }}">
-                                        <i class="tim-icons icon-atom"></i>
-                                        <p>{{ __('Icons') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.maps') }}">
-                                        <i class="tim-icons icon-pin"></i>
-                                        <p>{{ __('Maps') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.notifications') }}">
-                                        <i class="tim-icons icon-bell-55"></i>
-                                        <p>{{ __('Notifications') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.tables') }}">
-                                        <i class="tim-icons icon-puzzle-10"></i>
-                                        <p>{{ __('Table List') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.typography') }}">
-                                        <i class="tim-icons icon-align-center"></i>
-                                        <p>{{ __('Typography') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.rtl') }}">
-                                        <i class="tim-icons icon-world"></i>
-                                        <p>{{ __('RTL Support') }}</p>
-                                    </a>
-                                </li>
-                                 <li class="bg-info">
-                                    <a href="{{ route('pages.upgrade') }}">
-                                        <i class="tim-icons icon-spaceship"></i>
-                                        <p>{{ __('Upgrade to PRO') }}</p>
-                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -214,30 +160,6 @@
                                     <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                                         <span class="d-lg-none d-md-block">{{ __('Search') }}</span>
                                     </button>
-                                </li>
-                                <li class="dropdown nav-item">
-                                    <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                        <div class="notification d-none d-lg-block d-xl-block"></div>
-                                        <i class="tim-icons icon-sound-wave"></i>
-                                        <p class="d-lg-none"> {{ __('Notifications') }} </p>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                        <li class="nav-link">
-                                            <a href="#" class="nav-item dropdown-item">{{ __('Mike John responded to your email') }}</a>
-                                        </li>
-                                        <li class="nav-link">
-                                            <a href="#" class="nav-item dropdown-item">{{ __('You have 5 more tasks') }}</a>
-                                        </li>
-                                        <li class="nav-link">
-                                            <a href="#" class="nav-item dropdown-item">{{ __('Your friend Michael is in town') }}</a>
-                                        </li>
-                                        <li class="nav-link">
-                                            <a href="#" class="nav-item dropdown-item">{{ __('Another notification') }}</a>
-                                        </li>
-                                        <li class="nav-link">
-                                            <a href="#" class="nav-item dropdown-item">{{ __('Another one') }}</a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="dropdown nav-item">
                                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
