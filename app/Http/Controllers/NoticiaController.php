@@ -7,9 +7,18 @@ use Illuminate\Support\Facades\Http;
 
 class NoticiaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $title = $request->title;
         $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+        if($title != '') {
+            $noticias = Http::withToken($token)->get('http://127.0.0.1:8000/api/noticias', $request)->json();
+            if($noticias['status'] == true){
+                return view('noticias.index')->with('noticias', $noticias);
+            } elseif ($noticias['message'] == "Token inválido!"){
+                return redirect('login');
+            }
+        }
         $noticias = Http::withToken($token)->get('http://127.0.0.1:8000/api/noticias')->json();
         if($noticias['status'] == true){
             return view('noticias.index')->with('noticias', $noticias);

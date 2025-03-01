@@ -269,10 +269,12 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="{{ __('SEARCH') }}">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="{{ __('Close') }}">
-                                    <i class="tim-icons icon-simple-remove"></i>
-                              </button>
+                                <input type="text" name="title" class="form-control" id="inlineFormInputGroup" placeholder="{{ __('SEARCH') }}">
+                                <button type="button" class="close" aria-label="{{ __('Close') }}" onclick="redirectToRoute()">
+                                    <a id="searchLink" href="{{ route('noticias.index', ['title' => '']) }}">
+                                        <i class="tim-icons icon-send"></i>
+                                    </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -387,6 +389,11 @@
 </footer>
             </div>
         </div>
+
+    <form id="search-form" action="{{route('noticias.index', ['title'=> 'word'])}}" method="GET" style="display: none;">
+
+    </form>
+
     <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
             @csrf
             <div class="fixed-plugin">
@@ -543,6 +550,27 @@
                     $('body').removeClass('white-content');
                 });
             });
+        });
+        $('form-control').keypress(function(e){
+            console.log('Evento');
+        });
+        var e = $.Event( "keypress", { which: 13 } );
+        $('form-control').trigger(e);
+        function redirectToRoute() {
+            let title = document.getElementById('inlineFormInputGroup').value;
+            let searchLink = document.getElementById('searchLink');
+
+            // Atualiza o link com o novo parâmetro antes de navegar
+            searchLink.href = "{{ route('noticias.index') }}" + "?title=" + encodeURIComponent(title);
+
+            // Opcional: Redireciona automaticamente
+            window.location.href = searchLink.href;
+        }
+        document.getElementById('inlineFormInputGroup').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evita o comportamento padrão do formulário
+                redirectToRoute();
+            }
         });
     </script>
     @stack('js')
