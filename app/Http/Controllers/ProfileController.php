@@ -17,9 +17,11 @@ class ProfileController extends Controller
      */
     public function edit(Request $request)
     {
+        $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+
         $id = $request->id;
         $url = 'http://127.0.0.1:8000/api/users/' . $id;
-        $user = Http::get($url)->json();
+        $user = Http::withToken($token)->get($url)->json();
         return view('profile.edit')->with('user', $user);
     }
 

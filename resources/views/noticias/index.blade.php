@@ -256,7 +256,7 @@
                                         </li>
                                         <li class="dropdown-divider"></li>
                                         <li class="nav-link">
-                                            <a href="{{ route('user.logout') }}" class="nav-item dropdown-item">{{ __('Log out') }}</a>
+                                            <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -313,26 +313,26 @@
                         <table class="table tablesorter" id="">
                             <thead class=" text-primary">
                                 <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Creation Date</th>
+                                <th>Id</th>
+                                <th>Título</th>
+                                <th>Conteúdo</th>
                                 <th></th>
                                 </tr>
                             </thead>
-                            @foreach ($users['users']['data'] as $user)
+                            @foreach ($noticias['noticias']['data'] as $user)
                             <tbody>
                                 <tr>
-                                    <td>{{$user['name']}}</td>
-                                    <td>{{$user['email']}}</td>
-                                    <td>{{$user['created_at']}}</td>
+                                    <td>{{$user['id']}}</td>
+                                    <td>{{$user['title']}}</td>
+                                    <td>{{$user['content_text']}}</td>
                                     <td class="text-right">
                                         <div class="dropdown">
                                             <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fas fa-ellipsis-v"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{ route('profile.edit', ['id'=> $user['id']]) }}">Edit</a>
-                                                <a class="dropdown-item" href="{{ route('user.destroy', ['id'=> $user['id']]) }}">Delete</a>
+                                                <a class="dropdown-item" href="{{ route('noticias.edit', ['id'=> $user['id']]) }}">Edit</a>
+                                                <a class="dropdown-item" href="{{ route('noticia.destroy', ['id'=> $user['id']]) }}">Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -387,7 +387,7 @@
 </footer>
             </div>
         </div>
-    <form id="logout-form" action="{{route('user.logout')}}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
             @csrf
             <div class="fixed-plugin">
         <div class="dropdown show-dropdown">

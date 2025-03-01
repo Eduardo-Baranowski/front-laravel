@@ -2,13 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Http\Requests\UserRequest;
 use Exception;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
@@ -36,8 +32,9 @@ class UserController extends Controller
             $response = Http::withToken($token)->post('http://127.0.0.1:8000/api/users', $request);
             if($response['status'] == true){
                 return redirect('user');
+            } elseif ($response['message'] == "Token inválido!"){
+                return redirect('login');
             }
-            return redirect('login');
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to create user'], 500);
         }
@@ -49,7 +46,6 @@ class UserController extends Controller
             $response = Http::post('http://127.0.0.1:8000/api/login', $request);
             if ($response['status'] == true){
                 setcookie("token",$response['token']);
-                //var_dump($response['user']['id']);
                 setcookie("id",$response['user']['id']);
                 return redirect('user');
             }
@@ -68,12 +64,30 @@ class UserController extends Controller
         }
     }
 
+    public function logout(Request $request)
+    {
+        try{
+
+            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+            $id = $_COOKIE["id"];
+
+            $url = 'http://127.0.0.1:8000/api/logout/' . $id;
+            $response = Http::withToken($token)->post($url);
+            if ($response['status'] == true){
+                return redirect('login');
+            };
+        }catch (Exception $e){
+            return response()->json(['message' => 'Failed to logout'], 500);
+        }
+    }
+
     public function update(Request $request)
     {
         try{
+            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
             $id = $request->id;
             $url = 'http://127.0.0.1:8000/api/users/' . $id;
-            $response = Http::put($url, $request);
+            $response = Http::withToken($token)->put($url, $request);
             if ($response['status'] == true){
                 return redirect('user');
             };
@@ -85,9 +99,10 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         try{
+            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
             $id = $request->id;
             $url = 'http://127.0.0.1:8000/api/users/' . $id;
-            $response = Http::delete($url);
+            $response = Http::withToken($token)->delete($url);
             if ($response['status'] == true){
                 return redirect('user');
             };
