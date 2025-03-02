@@ -16,13 +16,14 @@ class UserController extends Controller
      */
     public function index()
     {
+        if(isset($_COOKIE["token"]) == null){
+            return redirect('login');
+        }
         $token = 'Authorization: Bearer ' . $_COOKIE["token"];
         $users = Http::withToken($token)->get('http://127.0.0.1:8000/api/users')->json();
         if($users['status'] == true){
             return view('users.index')->with('users', $users);
         }
-        return redirect('login');
-
     }
 
     public function store(Request $request)

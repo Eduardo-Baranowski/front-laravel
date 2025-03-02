@@ -39,7 +39,7 @@
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
-                            <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
+                            <a href="{{ route('user.logout') }}" class="nav-item dropdown-item">{{ __('Log out') }}</a>
                         </li>
                     </ul>
                 </li>
@@ -47,6 +47,9 @@
             </ul>
         </div>
     </div>
+    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </nav>
 <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
     <div class="modal-dialog" role="document">

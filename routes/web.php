@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('', function () {
+    try {
+            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
+            $users = Http::withToken($token)->get('http://127.0.0.1:8000/api/users')->json();
+            if ($users['status'] == true) {
+                return view('users.index')->with('users', $users);
+            }
+    }catch (Exception $e){
+        return redirect('login');
+    }
+
 });
 
 Auth::routes();

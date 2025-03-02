@@ -9,6 +9,9 @@ class NoticiaController extends Controller
 {
     public function index(Request $request)
     {
+        if(isset($_COOKIE["token"]) == null){
+            return redirect('login');
+        }
         $title = $request->title;
         $token = 'Authorization: Bearer ' . $_COOKIE["token"];
         if($title != '') {
