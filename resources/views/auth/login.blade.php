@@ -1,6 +1,8 @@
 @extends('layouts.app', ['class' => 'login-page', 'page' => __('Login Page'), 'contentClass' => 'login-page'])
 
 @section('content')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@vite(['resources/js/app.js'])
     <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <form class="form" method="post" action="{{ route('user.authenticate') }}">
             @csrf

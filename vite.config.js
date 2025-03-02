@@ -6,8 +6,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/css/white-dashboard.css',
             ],
             refresh: true,
         }),
@@ -25,4 +25,7 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+    server: {
+        https: false,
+    }
 });

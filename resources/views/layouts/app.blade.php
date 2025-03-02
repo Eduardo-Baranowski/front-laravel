@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <title>{{ config('app.name', 'White Dashboard') }}</title>
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
@@ -19,6 +19,7 @@
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/white-dashboard@1.0.0/css/white-dashboard.css" rel="stylesheet">
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
