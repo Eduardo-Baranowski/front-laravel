@@ -6,7 +6,9 @@
     },
     "routes": [{
         "src": "/(.*)",
-        "dest": "/api/index.php"
+        "dest": "/api/index.php",
+        "src": "/white/js/(.*)", "dest": "/public/white/js/$1"
+
     }],
     "env": {
         "APP_ENV": "production",
