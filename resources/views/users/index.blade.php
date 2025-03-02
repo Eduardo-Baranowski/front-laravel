@@ -5,7 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/white-dashboard@1.0.0/css/white-dashboard.css" rel="stylesheet">
+        @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <title>{{ __('White Dashboard Laravel by Creative Tim & UPDIVISION') }}</title>
         <!-- Favicon -->
 
@@ -45,16 +47,16 @@
         <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up" />
         <meta property="og:site_name" content="Creative Tim" />
 
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="resources/img/apple-icon.png">
+        <link rel="icon" type="image/png" href="resources/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
-        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="resources/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
+        <link href="resources/css/theme.css" rel="stylesheet" />
 
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -299,8 +301,8 @@
 </footer>
             </div>
         </div>
-    <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
-    <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
+    <script src="resources/js/core/jquery.min.js"></script>
+    <script src="resources/js/core/popper.min.js"></script>
     <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
     <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Google Maps Plugin    -->
