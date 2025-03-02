@@ -9,54 +9,16 @@
         @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <title>{{ __('White Dashboard Laravel by Creative Tim & UPDIVISION') }}</title>
         <!-- Favicon -->
-
-       <!-- Extra details for Live View on GitHub Pages -->
-        <!-- Canonical SEO -->
-        <link rel="canonical" href="https://www.creative-tim.com/product/white-dashboard-laravel" />
-
-
-        <!--  Social tags      -->
-        <meta name="keywords" content="design system, dashboard, bootstrap 4 dashboard, bootstrap 4 design, bootstrap 4 system, bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, white, white dashboard, creative tim, updivision, html dashboard, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap dashboard, responsive dashboard, laravel, laravel php, laravel php framework, free laravel admin template, free laravel admin, free laravel admin template + Front End + CRUD, crud laravel php, crud laravel, laravel backend admin dashboard">
-        <meta name="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up">
-
-
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="White Dashboard Laravel by Creative Tim & UPDIVISION">
-        <meta itemprop="description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up">
-
-        <meta itemprop="image" content="https://s3.amazonaws.com/creativetim_bucket/products/215/opt_wd_laravel_thumbnail.jpg">
-
-
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="product">
-        <meta name="twitter:site" content="@creativetim">
-        <meta name="twitter:title" content="White Dashboard by Creative Tim & UPDIVISION">
-
-        <meta name="twitter:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up">
-        <meta name="twitter:creator" content="@creativetim">
-        <meta name="twitter:image" content="https://s3.amazonaws.com/creativetim_bucket/products/215/opt_wd_laravel_thumbnail.jpg">
-
-
-        <!-- Open Graph data -->
-        <meta property="fb:app_id" content="655968634437471">
-        <meta property="og:title" content="White Dashboard by Creative Tim & UPDIVISION" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://www.creative-tim.com/live/white-dashboard-laravel" />
-        <meta property="og:image" content="https://s3.amazonaws.com/creativetim_bucket/products/215/opt_wd_laravel_thumbnail.jpg"/>
-        <meta property="og:description" content="Start your development with a Bootstrap 4 Admin Dashboard built for Laravel Framework 5.5 and Up" />
-        <meta property="og:site_name" content="Creative Tim" />
-
-        <link rel="apple-touch-icon" sizes="76x76" href="resources/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="resources/img/favicon.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('resources/img/apple-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('resources/img/favicon.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
-        <link href="resources/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="resources/css/theme.css" rel="stylesheet" />
-
+        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
+        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -300,8 +262,8 @@
 </footer>
             </div>
         </div>
-    <script src="resources/js/core/jquery.min.js"></script>
-    <script src="resources/js/core/popper.min.js"></script>
+    <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
+    <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
     <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!--  Google Maps Plugin    -->

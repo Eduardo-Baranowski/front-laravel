@@ -10,11 +10,15 @@ import '@popperjs/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 window.PerfectScrollbar = PerfectScrollbar;
 
+// Importe bootstrap-notify
+import 'bootstrap-notify';
+
 // Importe o arquivo JS do White Dashboard
 import './white-dashboard.js';
 
 // Importe o CSS do White Dashboard
 import '../css/white-dashboard.css';
+import '../css/theme.css';
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
