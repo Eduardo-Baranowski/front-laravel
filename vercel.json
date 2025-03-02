@@ -10,6 +10,9 @@
         "src": "/white/js/(.*)", "dest": "/public/white/js/$1"
 
     }],
+    "builds": [
+        { "src": "api/index.php", "use": "@vercel/php" }
+    ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
