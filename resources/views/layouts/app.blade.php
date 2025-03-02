@@ -9,6 +9,7 @@
         @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'White Dashboard') }}</title>
+        <link href="{{ asset('css/white-dashboard.css') }}" rel="stylesheet">
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="76x76" href="resources/img/apple-icon.png">
         <link rel="icon" type="image/png" href="resources/img/favicon.png">
