@@ -95,7 +95,7 @@
         <!--  Notifications Plugin    -->
         <script src="resources/js/plugins/bootstrap-notify.js"></script>
 
-        <script src="resources/js/white-dashboard.min.js?v=1.0.0"></script>
+        <script src="{{ asset('js/white-dashboard.min.js') }}"></script>
         <script src="resources/js/theme.js"></script>
 
         @stack('js')
