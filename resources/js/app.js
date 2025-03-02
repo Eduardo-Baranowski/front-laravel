@@ -10,9 +10,6 @@ import '@popperjs/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 window.PerfectScrollbar = PerfectScrollbar;
 
-// Importe bootstrap-switch
-import 'bootstrap-switch';
-
 // Importe o arquivo JS do White Dashboard
 import './white-dashboard.js';
 
