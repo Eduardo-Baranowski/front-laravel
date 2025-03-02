@@ -18,7 +18,7 @@
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
-        <link href="resources/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
+        <!-- <link href="resources/css/white-dashboard.css?v=1.0.0" rel="stylesheet" /> -->
         <link href="resources/css/theme.css" rel="stylesheet" />
     </head>
     <body class="white-content {{ $class ?? '' }}">

@@ -1,17 +1,23 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Importe jQuery
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+
+// Importe Bootstrap e Popper.js
 import 'bootstrap';
 import '@popperjs/core';
 
-import { createApp } from 'vue';
-import '../css/app.css';
+// Importe PerfectScrollbar
+import PerfectScrollbar from 'perfect-scrollbar';
+window.PerfectScrollbar = PerfectScrollbar;
+
+// Importe bootstrap-switch
+import 'bootstrap-switch';
+
+// Importe o arquivo JS do White Dashboard
 import './white-dashboard.js';
-import '../css/white-dashboard.css'
+
+// Importe o CSS do White Dashboard
+import '../css/white-dashboard.css';
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
