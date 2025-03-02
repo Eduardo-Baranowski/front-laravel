@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/white-dashboard@1.0.0/css/white-dashboard.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/white-dashboard@1.0.0/js/white-dashboard.js"></script>
         @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'White Dashboard') }}</title>
