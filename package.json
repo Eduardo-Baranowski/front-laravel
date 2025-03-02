@@ -19,7 +19,6 @@
         "node": "18.x"
     },
     "dependencies": {
-        "bootstrap-switch": "^3.4.0",
         "jquery": "^3.7.1",
         "perfect-scrollbar": "^1.5.6"
     }
