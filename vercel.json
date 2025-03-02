@@ -12,13 +12,13 @@
     "routes": [
       {
         "src": "/build/(.*)",
+        "dest": "/build/$1",
         "headers": [
           {
             "key": "Content-Type",
             "value": "application/javascript"
           }
-        ],
-        "dest": "/build/$1"
+        ]
       },
       {
         "src": "/(.*)",
