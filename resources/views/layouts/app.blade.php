@@ -34,9 +34,6 @@
                     @include('layouts.footer')
                 </div>
             </div>
-            <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
         @else
             @include('layouts.navbars.navbar')
             <div class="wrapper wrapper-full-page">

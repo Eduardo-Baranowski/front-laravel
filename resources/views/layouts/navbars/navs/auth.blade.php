@@ -32,13 +32,6 @@
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
                         <li class="nav-link">
-                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
-                        </li>
-                        <li class="nav-link">
-                            <a href="#" class="nav-item dropdown-item">{{ __('Settings') }}</a>
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li class="nav-link">
                             <a href="{{ route('user.logout') }}" class="nav-item dropdown-item">{{ __('Log out') }}</a>
                         </li>
                     </ul>
@@ -47,9 +40,6 @@
             </ul>
         </div>
     </div>
-    <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
 </nav>
 <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
