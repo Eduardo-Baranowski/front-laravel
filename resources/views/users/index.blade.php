@@ -9,8 +9,8 @@
         @vite(['resources/css/white-dashboard.css', 'resources/js/app.js'])
         <title>{{ __('White Dashboard Laravel by Creative Tim & UPDIVISION') }}</title>
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('resources/img/apple-icon.png') }}">
-        <link rel="icon" type="image/png" href="{{ asset('resources/img/favicon.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('white') }}resources/img/apple-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('white') }}resources/img/favicon.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -167,7 +167,6 @@
     </div>
 </div>
 </div>
-
 
                 <div class="content">
                 <div class="row">

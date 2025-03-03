@@ -93,7 +93,9 @@ class UserController extends Controller
             $response = Http::withToken($token)->put($url, $request);
             if ($response['status'] == true){
                 return redirect('user');
-            };
+            } else {
+                return response()->json(['message' => $response['message']], 500);
+            }
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to update user'], 500);
         }
@@ -108,7 +110,9 @@ class UserController extends Controller
             $response = Http::withToken($token)->delete($url);
             if ($response['status'] == true){
                 return redirect('user');
-            };
+            } else {
+                return response()->json(['message' => $response['message']], 500);
+            }
         }catch (Exception $e){
             return response()->json(['message' => 'Failed to delete user'], 500);
         }
