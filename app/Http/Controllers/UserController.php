@@ -29,15 +29,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try{
-            $token = 'Authorization: Bearer ' . $_COOKIE["token"];
-            $response = Http::withToken($token)->post('http://127.0.0.1:8000/api/users', $request);
+            $response = Http::post('http://127.0.0.1:8000/api/users', $request);
             if($response['status'] == true){
                 return redirect('user');
             } elseif ($response['message'] == "Token inválido!"){
                 return redirect('login');
             }
         }catch (Exception $e){
-            return response()->json(['message' => 'Failed to create user'], 500);
+            var_dump($e->getMessage());
+            return response()->json(['message' => $response['erros']], 500);
         }
     }
 
@@ -52,7 +52,7 @@ class UserController extends Controller
             }
             return response()->json(['message' => 'Failed to login user'], 500);
         }catch (Exception $e){
-            return response()->json(['message' => 'Failed to login user'], 500);
+            return response()->json(['message' => $response['erros']], 500);
         }
     }
 
